@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>home</title>
+  </head>
+  <body>
+    <p id="result1"></p><br>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    <p id="result5"></p><br>
+    <p id="result6"></p><br>
+    <p id="result7"></p><br>
+    <p id="result10"></p><br>
+    <button onclick="datee()">ELEVENTH: click for show date</button>
+    <a id="result11"></a><br>
+
+    <br><br>
+    <p id="result13"></p>
+  </body>
+  <script>
+    function reversee(number) {
+      number=number.toString().split("").reverse().join("");
+      return number;
+    }
+    console.log(reversee(12345));
+
+    function palindrome(str) {
+      if (str.split("").join("").toLowerCase()==str.split("").reverse().join("").toLowerCase()) {
+        console.log(str + " is palindrome");
+      }
+      else {
+        console.log(str + " is not palindrome");
+    }}
+    palindrome("kazak");
+
+    function sorted(str){
+      document.getElementById("result4").innerHTML="FOURTH: " + str.split("").sort().join("").toLowerCase(); 
+    }
+    sorted("muklya"); 
+    function longestword(str) {
+      str=str.split(" ");
+      x=0;
+      word="";
+      for (var i=0;i<str.length;i++){
+        if(x<str[i].length){
+          x=str[i].length;
+          word=str[i];
+        }
+      }
+      document.getElementById("result6").innerHTML="SIX: "+"The longest word is"+" "+word;
+    }
+    longestword("hello my name is DEN");
+    function knowtype(value){
+      var x;
+      if (typeof(value)==undefined){
+        x=undefined;
+      }
+      else if(typeof(value)=="function"){
+        x="function";
+      }
+      else if(typeof(value)=="number"){
+        x="number";
+      }
+      else if(typeof(value)=="string"){
+        x="string";
+      }
+      else if(typeof(value)=="boolean"){
+        x="boolean";
+      }
+      else if(typeof(value)=="object"){
+        x="object";
+      }
+      else x=undefined;
+      document.getElementById("result7").innerHTML="SEVENTH: " + x;
+    }
+    knowtype(12);
+    function average(list){
+      var z=0;
+      for(var d=0;d<list.length;d++){
+        z=z+list[d];
+      }
+      var avg=z/list.length;
+      document.getElementById("result13").innerHTML="THIRTEEN: " + avg;
+    }
+    average([1,2,3,4,5,6,7,8,9]);
+    function frequency(word) {
+    var dict = {};
+    for (var i=0; i<word.length;i++) {
+        var character = word.charAt(i);
+        if (dict[character]) {
+           dict[character]++;
+        } else {
+           dict[character] = 1;
+        }
+    }
+    return dict;
+};
+  console.log(frequency("hello"));
+  function datee() {
+    var time = new Date();
+    document.getElementById("result11").innerHTML=time;
+  }
+  var fibo = function(n) {
+    if(n <= 2) {
+        return 1;
+    } else {
+        return fibo(n - 1) + fibo(n - 2);
+    }
+};document.getElementById("result10").innerHTML="TENTH: "+"fibonacci 7 is "+fibo(7).toString();
+  function getAllMethods(object) {
+    return Object.getOwnPropertyNames(object).filter(function(property) {
+        return typeof object[property] == 'function';
+    });
+}
+console.log(getAllMethods(Math));
+  </script>
+</html>
